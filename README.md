@@ -1,12 +1,26 @@
 # Requirement Analysis Assistant
 
-A project-grounded Codex skill for product managers that turns messy requirement signals into structured analysis before spec writing or solutioning.
+A project-grounded Codex skill for product managers that turns messy requirement signals into structured analysis before solutioning, and supports controlled handoff into spec when the input is ready.
+
+## Latest Update
+
+The repository now contains the v2 version of the skill.
+
+- Update notes: [UPDATE-2026-03-17-v2.md](./UPDATE-2026-03-17-v2.md)
+- Main additions in v2:
+  - explain `user`, `scene`, and `requirement meaning` before value analysis
+  - reduce repeated background and prioritize new judgment
+  - add bounded legal/finance risk prompts
+  - support spec handoff after PM confirmation
+  - require the active spec template materials before any spec drafting
 
 It helps PMs:
 - read the current project context first
 - organize messy requirement inputs without upgrading them too early
-- surface user value, business value, missing information, and conflicts
+- explain user, scene, and requirement meaning before value analysis
+- surface user value, business value, missing information, conflicts, and risk hints
 - give suggestion-oriented guidance instead of final decisions
+- hand off into spec in a controlled way after PM confirmation
 
 ## Best For
 
@@ -15,6 +29,7 @@ Use this skill when:
 - you are not sure whether something is a real requirement yet
 - project context matters
 - you want to know what to verify next before writing a spec
+- you want help deciding whether the input is ready for spec handoff
 
 Do not use it when:
 - the requirement is already clear and only needs documentation
@@ -46,32 +61,40 @@ requirement-analysis-assistant
 Recommended explicit invocation:
 
 ```text
-Please use $requirement-analysis-assistant, read the current project first, and help me analyze this messy requirement input.
+Please use $requirement-analysis-assistant, read the current project first, explain the user, scene, and requirement meaning, and help me judge whether this messy input is ready for spec handoff.
 ```
 
 Recommended Chinese invocation:
 
 ```text
-请使用 $requirement-analysis-assistant，先读取当前 project 的已有材料，再帮我梳理下面这条散乱需求输入。
+请使用 $requirement-analysis-assistant，先读取当前 project 的已有材料，先解释用户、场景和需求含义，再帮我判断这条散乱输入是否具备转 spec 的基础。
 ```
 
 ## What The Output Looks Like
 
 The skill is designed to surface:
-- current understanding
+- one-line current judgment
+- user
+- scene
+- requirement meaning
+- new judgment
+- missing information
+- conflicts
+- confirmed information
+- legal/finance risk hints when relevant
 - user value
 - business value
 - supporting evidence
 - counter-evidence or doubts
-- missing information
-- conflicts
 - suggestion-oriented next steps
+- whether spec handoff is recommended
 
 It should not jump straight to:
 - solution proposals
-- spec writing
 - PRD generation
 - final requirement decisions
+
+When spec handoff is confirmed, it should ask the PM to upload the active spec template materials before drafting any skeleton-level spec content.
 
 ## Repository Contents
 
@@ -89,6 +112,8 @@ It should not jump straight to:
   Installation guide
 - `PUBLISH-TO-GITHUB.md`
   Publishing guide
+- `UPDATE-2026-03-17-v2.md`
+  v2 update notes and rollout guidance
 
 ## Notes
 

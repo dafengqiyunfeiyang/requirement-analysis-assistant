@@ -1,4 +1,4 @@
 interface:
   display_name: "需求判断助手"
-  short_description: "先读当前 project，再帮 PM 梳理散乱输入、识别价值与待补信息。"
-  default_prompt: "Use $requirement-analysis-assistant to read the current project first, then help me turn this messy input into a requirement analysis."
+  short_description: "先读当前 project，拆出用户/场景/需求，识别价值、冲突、风险与 spec 转接时机。"
+  default_prompt: "Use $requirement-analysis-assistant to read the current project first, explain the user, scene, and requirement meaning, then help me judge whether this messy input is ready for spec handoff."
