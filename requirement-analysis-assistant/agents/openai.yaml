@@ -1,4 +1,4 @@
 interface:
   display_name: "需求判断助手"
-  short_description: "先读当前 project，拆出用户/场景/需求，识别价值、冲突、风险与 spec 转接时机。"
-  default_prompt: "Use $requirement-analysis-assistant to read the current project first, explain the user, scene, and requirement meaning, then help me judge whether this messy input is ready for spec handoff."
+  short_description: "先读当前 project，拆出用户/场景/需求，做转 spec 前自检，再判断是否适合转接。"
+  default_prompt: "Use $requirement-analysis-assistant to read the current project first, explain the user, scene, and requirement meaning, run a pre-spec self-check, and then help me judge whether this messy input is ready for spec handoff."

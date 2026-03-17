@@ -7,7 +7,7 @@ description: Use when a PM needs project-grounded analysis of messy requirement 
 
 ## Overview
 
-Use this skill when a PM receives messy requirement signals and needs help judging what they are looking at before jumping into solutions. The skill reads the current project first, explains the user, scene, and requirement meaning before value analysis, reduces repeated background, surfaces conflicts and missing facts, and gives suggestion-oriented guidance. When the requirement is ready, it can hand off into the PM's current spec workflow after the PM confirms and uploads the active spec template materials.
+Use this skill when a PM receives messy requirement signals and needs help judging what they are looking at before jumping into solutions. The skill reads the current project first, explains the user, scene, and requirement meaning before value analysis, reduces repeated background, surfaces conflicts and missing facts, and gives suggestion-oriented guidance. Before asking to enter spec, it runs a compact pre-spec self-check to catch drift or blockers. When the requirement is ready, it can hand off into the PM's current spec workflow after the PM confirms and uploads the active spec template materials.
 
 ## When To Use
 
@@ -34,8 +34,9 @@ Do not use this skill when:
 8. Detect conflicts across PM input, project material, code, and references.
 9. Add AI-retrievable evidence only after PM-supplied facts and project material.
 10. Surface legal and financial risk hints when relevant.
-11. Decide whether spec handoff is appropriate.
-12. If the PM confirms spec handoff, request the current spec template materials before any spec drafting.
+11. Run a pre-spec self-check when handoff is near.
+12. Decide whether spec handoff is appropriate.
+13. If the PM confirms spec handoff, request the current spec template materials before any spec drafting.
 
 ## Hard Rules
 
@@ -47,6 +48,7 @@ Do not use this skill when:
 - Never give legal or financial conclusions; only surface possible risk directions and who should confirm them.
 - Never ask broad, low-value questions when a sharper question is available.
 - Treat single-end project context as partial context, not global truth.
+- Never ask whether to enter spec before the pre-spec self-check is complete.
 - If the PM wants to enter spec but has not uploaded the current template materials yet, stop at the starter pack and ask for them.
 - Stop when the PM can already see the new judgments, major doubts, next facts to gather, and whether the input is ready for spec handoff.
 
@@ -62,6 +64,7 @@ Use this first-screen order whenever relevant:
 - `冲突点`
 - `已确认信息`
 - `风险提示`
+- `转 spec 前自检`
 - `是否建议转 spec`
 
 Expanded sections when useful:
@@ -76,6 +79,23 @@ Formatting rules:
 - `待确认信息` should usually stay within 1 to 3 items.
 - `已确认信息` should usually stay within 3 to 5 items and should carry a light source tag when possible, such as `PM确认` or `项目材料确认`.
 - `风险提示` should stay minimal when no clear legal or financial signal exists.
+- `转 spec 前自检` should only surface compact outcomes, not a long checklist.
+
+## Pre-Spec Self-Check
+
+Before any spec handoff question, run a compact self-check for:
+- problem-vs-solution drift
+- closure across `用户`, `场景`, and `需求解释`
+- vague user-value or business-value claims
+- missing facts that still block a first spec draft
+- unresolved conflicts
+- inferences written like facts
+- missed legal or financial risk hints
+
+Expose only one of these outcomes to the PM:
+- no obvious blocker to spec handoff
+- 1 to 2 wording drifts auto-corrected
+- 1 to 3 blockers that should be fixed before spec handoff
 
 ## Spec Handoff
 
@@ -84,6 +104,7 @@ Ask whether to enter spec when all of these are true enough:
 - user value and business value can be expressed
 - the scope boundary is basically writable
 - the remaining missing items do not block a first spec draft
+- the pre-spec self-check does not find a material blocker
 
 If the PM explicitly says things like `转 spec`, `写 spec`, or `可以进 spec`, treat that as direct handoff intent.
 
@@ -97,7 +118,7 @@ After handoff confirmation:
 
 ## Guidance
 
-- Read [references/workflow.md](references/workflow.md) for the detailed method, density rules, risk boundaries, and spec handoff behavior.
+- Read [references/workflow.md](references/workflow.md) for the detailed method, density rules, self-check rules, risk boundaries, and spec handoff behavior.
 - Read [references/examples.md](references/examples.md) for calibration examples.
 
 ## Anti-Patterns

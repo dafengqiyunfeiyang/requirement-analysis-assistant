@@ -96,6 +96,10 @@ PM补充：
 - 可能涉及财务影响，建议与财务确认：若优化后报名量提升，是否会影响活动成本或补贴测算
 - 暂未识别明显法务风险信号
 
+转 spec 前自检：
+- 已自动纠正 1 处表达偏差：将“简化流程”收敛为“提升审核反馈清晰度，减少重复提交与退出”
+- 未发现阻塞转 spec 的明显问题
+
 是否建议转 spec：
 建议转 spec。这条需求的问题定义、价值方向和主要边界已经足够支撑第一版 spec 启动。
 
@@ -149,6 +153,9 @@ PM补充：
 风险提示：
 - 暂未识别明显法务/财务风险信号
 
+转 spec 前自检：
+- 仍有 2 个问题建议先修正后再转 spec：问题场景不清、缺少行为证据
+
 是否建议转 spec：
 暂不建议转 spec。先把场景、用户行为和问题证据补清，再决定是否进入 spec。
 
@@ -180,6 +187,9 @@ PM补充：
 ```text
 这条需求已具备进入 spec 的基础。
 
+转 spec 前自检：
+- 未发现阻塞转 spec 的明显问题
+
 我可以继续转入 spec 工作流，但请先上传当前使用的 spec 模板。
 如有使用说明和示范样板，也建议一并上传。
 
@@ -203,4 +213,5 @@ PM补充：
 - Use `新增判断` as the highest-density section.
 - Keep `待确认信息` and `已确认信息` short and purpose-driven.
 - Keep risk prompts in-bounds.
+- Use `转 spec 前自检` as the final guard before handoff.
 - Do not enter spec drafting until the PM confirms handoff and uploads the current template materials.

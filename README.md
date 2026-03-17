@@ -4,9 +4,15 @@ A project-grounded Codex skill for product managers that turns messy requirement
 
 ## Latest Update
 
-The repository now contains the v2 version of the skill.
+The repository now contains the v2.1 version of the skill.
 
-- Update notes: [UPDATE-2026-03-17-v2.md](./UPDATE-2026-03-17-v2.md)
+- Update notes:
+  - [UPDATE-2026-03-17-v2.1.md](./UPDATE-2026-03-17-v2.1.md)
+  - [UPDATE-2026-03-17-v2.md](./UPDATE-2026-03-17-v2.md)
+- Main additions in v2.1:
+  - add a compact pre-spec self-check before asking whether to hand off
+  - keep self-check mostly internal and expose only high-signal outcomes
+  - block premature spec handoff when a meaningful issue is still open
 - Main additions in v2:
   - explain `user`, `scene`, and `requirement meaning` before value analysis
   - reduce repeated background and prioritize new judgment
@@ -112,6 +118,8 @@ When spec handoff is confirmed, it should ask the PM to upload the active spec t
   Installation guide
 - `PUBLISH-TO-GITHUB.md`
   Publishing guide
+- `UPDATE-2026-03-17-v2.1.md`
+  v2.1 patch note for the pre-spec self-check update
 - `UPDATE-2026-03-17-v2.md`
   v2 update notes and rollout guidance
 

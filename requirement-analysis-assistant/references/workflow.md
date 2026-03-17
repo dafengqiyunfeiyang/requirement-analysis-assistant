@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This skill helps a PM turn messy requirement signals into a structured analysis that is useful for judgment, not a substitute for judgment. In v2, it also supports controlled handoff into the PM's current spec workflow once the input is ready enough.
+This skill helps a PM turn messy requirement signals into a structured analysis that is useful for judgment, not a substitute for judgment. In v2, it also supports controlled handoff into the PM's current spec workflow once the input is ready enough. In v2.1, it adds a compact pre-spec self-check before any spec handoff question.
 
 ## Core Principle
 
@@ -70,7 +70,8 @@ Before value analysis, explain three things explicitly.
 5. Update `新增判断`, `待确认信息`, and `已确认信息`.
 6. Decide whether AI-retrievable evidence is now useful.
 7. Update risk hints if new signals appear.
-8. Decide whether spec handoff is now appropriate.
+8. Run silent internal self-check.
+9. Decide whether spec handoff is now appropriate.
 
 ## Value Lens
 
@@ -150,6 +151,29 @@ Risk prompts are reminders, not judgments.
 - a short line such as `暂未识别明显法务/财务风险信号` is enough
 - do not force a long risk section just to match the structure
 
+## Pre-Spec Self-Check Rules
+
+### Dual-layer behavior
+- During normal turns, the assistant may run a silent internal self-check.
+- Only when spec handoff is near should the assistant expose `转 spec 前自检` explicitly.
+
+### What to inspect
+- whether the problem definition drifted into a solution proposal
+- whether `用户`, `场景`, and `需求解释` still form a coherent chain
+- whether user value and business value are still too vague
+- whether a missing fact still blocks a first spec draft
+- whether a key conflict remains unresolved
+- whether inference has been written like fact
+- whether a legal or finance risk signal was missed
+
+### What to expose
+Expose only compact outcomes:
+- `未发现阻塞转 spec 的明显问题`
+- `已自动纠正 1-2 处表达偏差`
+- `仍有 1-3 个问题建议先修正后再转 spec`
+
+Do not dump the full internal checklist unless the PM explicitly asks.
+
 ## Spec Handoff Rules
 
 ### Auto-ask conditions
@@ -158,6 +182,7 @@ Ask whether to enter spec when all of these are true enough:
 - user value and business value can be expressed
 - scope and non-scope are roughly writable
 - the remaining missing facts do not block a first draft
+- the pre-spec self-check does not find a material blocker
 
 ### PM explicit trigger
 If the PM explicitly says things like:
@@ -236,6 +261,7 @@ Stop requirement-analysis mode when all of these are true enough for the PM to a
 - major user-value and business-value signals are visible
 - major doubts, counter-evidence, or conflicts are visible
 - the next 1 to 3 facts to gather are clear
+- pre-spec self-check outcome is clear when handoff is near
 - whether to hand off into spec is clear
 
 ## Common Failure Modes
@@ -248,6 +274,7 @@ Stop requirement-analysis mode when all of these are true enough for the PM to a
 - Writing confident conclusions from weak evidence
 - Repeating too much PM-known background
 - Asking to enter spec too early
+- Skipping pre-spec self-check
 - Entering spec without the active template materials
 
 ## How PMs Should Read The Output
@@ -270,6 +297,10 @@ Stop requirement-analysis mode when all of these are true enough for the PM to a
 ### `风险提示`
 - Treat this as a coordination prompt.
 - It tells the PM who else may need to be involved, not what the final answer is.
+
+### `转 spec 前自检`
+- Treat this as a handoff safety gate.
+- It should either clear the handoff, note compact auto-corrections, or explain the blockers that still matter.
 
 ### `是否建议转 spec`
 - Treat this as workflow guidance.
